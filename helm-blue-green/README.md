@@ -49,3 +49,10 @@ kubectl-argo-rollouts promote example-helm-nginx
 ```
 
 This promotes container image `nginx:1.29` to `green` status and `Rollout` deletes old replica which runs `nginx:1.29.1`.
+
+ -------------------------------------------------------
+via argocd:
+
+kubectl config set-context --current --namespace=argocd
+
+argocd app set example -p image.tag=1.29.1
