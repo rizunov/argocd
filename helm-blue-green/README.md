@@ -56,3 +56,7 @@ via argocd:
 kubectl config set-context --current --namespace=argocd
 
 argocd app set example -p image.tag=1.29.1
+
+port-forward to argocd:
+
+kubectl port-forward svc/argocd-server -n argocd 8080:443
