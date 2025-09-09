@@ -8,7 +8,7 @@ autoPromotionEnabled: false # Manual promotion
 
 image:
   repository: nginx
-  tag: 1.29
+  tag: 1.29.1
   pullPolicy: IfNotPresent
 
 service:
