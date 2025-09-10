@@ -23,6 +23,7 @@ spec:
               command:
               - /bin/bash
               - -c
-              - ps -ef &
-              - sleep 10
+              - ps -ef
+              - echo sleeping
+              - sleep 30
           restartPolicy: OnFailure
