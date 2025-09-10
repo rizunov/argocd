@@ -7,4 +7,4 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 command: ["/bin/bash"]
-args: ["-c echo 'Running daily cleanup job...' && sleep 10 && echo 'Cleanup complete!'"]
+args: ["echo 'Running daily cleanup job...' && sleep 10 && echo 'Cleanup complete!'"]
