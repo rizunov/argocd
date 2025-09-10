@@ -1,15 +1,25 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ .Release.Name }}-cleanup
+  name: {{ .Release.Name }}-cleanup-job
+  labels:
+    app.kubernetes.io/name: helm-cronjob
+    helm.sh/chart: helm-cronjob
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
-  schedule: {{ .Values.schedule }}
+  schedule: {{ .Values.schedule | quote }}
+  concurrencyPolicy: {{ .Values.concurrencyPolicy }}
+  successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
   jobTemplate:
     spec:
       template:
         spec:
           containers:
-            - name: cleanup
-              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+            - name: cleanup-container
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
               command: {{ .Values.command }}
+              args: {{ .Values.args }}
           restartPolicy: OnFailure

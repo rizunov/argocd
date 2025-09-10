@@ -1,5 +1,10 @@
 schedule: "*/5 * * * *" # Runs every 5 minutes
+concurrencyPolicy: Forbid
+successfulJobsHistoryLimit: 3
+failedJobsHistoryLimit: 1
 image:
   repository: ubuntu
   tag: latest
-command: ["/bin/sh", "-c", "echo Cleaning temp files"]
+  pullPolicy: IfNotPresent
+command: ["/bin/sh", "-c"]
+args: ["echo 'Running daily cleanup job...' && sleep 10 && echo 'Cleanup complete!'"]
