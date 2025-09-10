@@ -55,6 +55,8 @@ via argocd:
 
 kubectl config set-context --current --namespace=argocd
 
+kubectl apply -f example-cronjob-manifest.yaml 
+
 argocd app set example -p image.tag=1.29.1
 
 port-forward to argocd:
