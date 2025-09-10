@@ -1,12 +1,5 @@
 schedule: "*/5 * * * *" # Runs every 5 minutes
-concurrencyPolicy: Forbid
-successfulJobsHistoryLimit: 3
-failedJobsHistoryLimit: 1
 image:
   repository: ubuntu
   tag: latest
-  imagePullPolicy: IfNotPresent
-command: ["/bin/bash"]
-args:
-- "-c"
-- "echo $(date) - hello from ubuntu"
+command: ["/bin/sh", "-c", "echo Cleaning temp files"]
