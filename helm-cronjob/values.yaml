@@ -3,8 +3,8 @@ concurrencyPolicy: Forbid
 successfulJobsHistoryLimit: 3
 failedJobsHistoryLimit: 1
 image:
-  repository: busybox
-  tag: latest
+  repository: nginx
+  tag: 1.29.1
   pullPolicy: IfNotPresent
-command: ["/bin/sh", "-c"]
+command: ["/bin/bash", "-c"]
 args: ["echo 'Running daily cleanup job...' && sleep 10 && echo 'Cleanup complete!'"]
