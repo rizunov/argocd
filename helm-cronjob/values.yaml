@@ -3,8 +3,10 @@ concurrencyPolicy: Forbid
 successfulJobsHistoryLimit: 3
 failedJobsHistoryLimit: 1
 image:
-  repository: nginx
-  tag: 1.29.1
-  pullPolicy: IfNotPresent
-command: ["/bin/bash", "-c"]
-args: ["echo 'Running daily cleanup job...' && sleep 10 && echo 'Cleanup complete!'"]
+  repository: ubuntu
+  tag: latest
+  imagePullPolicy: IfNotPresent
+command: ["/bin/bash"]
+args:
+- "-c"
+- "echo $(date) - hello from ubuntu"
