@@ -3,8 +3,8 @@ kind: CronJob
 metadata:
   name: {{ .Release.Name }}-cleanup-job
   labels:
-    app.kubernetes.io/name: {{ include "mychart.name" . }}
-    helm.sh/chart: {{ include "mychart.chart" . }}
+    app.kubernetes.io/name: example-cronjob
+    helm.sh/chart: example-cronjob
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
