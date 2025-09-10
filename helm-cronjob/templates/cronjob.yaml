@@ -24,6 +24,4 @@ spec:
               - /bin/bash
               - -c
               - ps -ef
-              - echo sleeping
-              - sleep 30
           restartPolicy: OnFailure
