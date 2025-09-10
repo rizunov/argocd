@@ -20,6 +20,8 @@ spec:
             - name: cleanup-container
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               imagePullPolicy: {{ .Values.image.pullPolicy }}
-              command: {{ .Values.command }}
-              args: {{ .Values.args }}
+              command:
+              - /bin/bash
+              - -c
+              - sleep 30
           restartPolicy: OnFailure
