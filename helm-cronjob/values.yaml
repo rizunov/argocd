@@ -6,5 +6,5 @@ image:
   repository: ubuntu
   tag: latest
   pullPolicy: IfNotPresent
-command: ["/bin/sh", "-c"]
-args: ["echo 'Running daily cleanup job...' && sleep 10 && echo 'Cleanup complete!'"]
+command: ["/bin/bash"]
+args: ["-c echo 'Running daily cleanup job...' && sleep 10 && echo 'Cleanup complete!'"]
