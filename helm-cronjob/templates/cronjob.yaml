@@ -21,5 +21,5 @@ spec:
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               imagePullPolicy: {{ .Values.image.pullPolicy }}
               command: {{ .Values.command }}
-              #args: {{ .Values.args }}
+              args: {{ .Values.args }}
           restartPolicy: OnFailure
